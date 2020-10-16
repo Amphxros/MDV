@@ -409,6 +409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 305791058}
+  - component: {fileID: 305791059}
   m_Layer: 0
   m_Name: clock
   m_TagString: Untagged
@@ -446,6 +447,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &305791059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305791057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0304173fad3352d4d838ad1ab9a7ec75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform_hour: {fileID: 539614086}
+  transform_min: {fileID: 1314047178}
+  transform_sec: {fileID: 1698924796}
 --- !u!1 &394441957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,8 +1687,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286409061}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0000015606042, y: 0.300022, z: -0.0000028908253}
   m_LocalScale: {x: 10, y: 0.1, z: 10}
   m_Children: []
   m_Father: {fileID: 305791058}
@@ -1762,14 +1778,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314047177}
-  m_LocalRotation: {x: 0, y: 0.8640113, z: 0, w: 0.5034725}
+  m_LocalRotation: {x: 0, y: 0.86602545, z: 0, w: 0.49999994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1495156470}
   m_Father: {fileID: 305791058}
   m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 119.54, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 120, z: 0}
 --- !u!1 &1396583826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,7 +2291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1698924796}
   m_Layer: 0
-  m_Name: sec arm (1)
+  m_Name: 'sec arm '
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
