@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float units_per_secs = 5;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        float x = Input.GetAxis("Horizontal");
+        //if( . . . ) //comprobar posicion actual dentro de los limites 
+        transform.Translate(new Vector3(x * units_per_secs * Time.deltaTime,0, 0));
     }
 }
