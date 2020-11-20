@@ -7,8 +7,9 @@ public class LogicaLetra : MonoBehaviour
     private TextMesh text; //texto del go
     void Start()
     {
-        //Generar random para asignar al texto
-
+        text = GetComponent<TextMesh>();
+        char c = (char)(Random.Range(65, 90));
+        text.text = c.ToString();
     }
 
     void Update()
