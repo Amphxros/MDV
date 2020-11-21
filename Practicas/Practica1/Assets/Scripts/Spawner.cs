@@ -13,11 +13,16 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         col = GetComponent<Collider2D>();
-        limite_=col.bounds.size.x; //ancho del objeto
+        limite_=col.bounds.size.x; //ancho del collider
+        float time_ = Random.Range(min_time, max_time);
+        Invoke("Spawn", time_);
     }
-
-    void Update()
+    void Spawn()
     {
-        
+        float time_ = Random.Range(min_time, max_time);
+        float pos = Random.Range(-limite_ / 2, limite_ / 2);
+
+        Instantiate(prefab, new Vector3(pos, transform.position.y, 0), Quaternion.identity);
+        Invoke("Spawn",time_);
     }
 }

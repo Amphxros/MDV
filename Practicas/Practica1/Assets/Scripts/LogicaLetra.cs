@@ -8,7 +8,7 @@ public class LogicaLetra : MonoBehaviour
     void Start()
     {
         text = GetComponent<TextMesh>();
-        char c = (char)(Random.Range(65, 90));
+        char c  = (char)(Random.Range(65, 91));  //mayusculas
         text.text = c.ToString();
     }
 
