@@ -7,7 +7,7 @@ public class Cae : MonoBehaviour
     public float min_vel;
     public float max_vel;
 
-    private float units_per_second;
+    private float units_per_second; 
 
     void Start()
     {
