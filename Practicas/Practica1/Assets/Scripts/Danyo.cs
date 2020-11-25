@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class Danyo : MonoBehaviour
 {
-    float percent_=0, timer_=1;
+    float percent_=1, timer_=1;
 
-    private Camera cam_;
-    // Start is called before the first frame update
+    private Camera cam_; //
+    
     void Start()
     {
         cam_ = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer_ -= Time.deltaTime;
