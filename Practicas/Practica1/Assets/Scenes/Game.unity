@@ -390,8 +390,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 3617031764314491244, guid: 99cab3740169e9b4c9702a6bc9b64cb6, type: 3}
-  min_time: 0.5
-  max_time: 1
+  minRitmoCreacion: 1
+  maxRitmoCreacion: 3
 --- !u!4 &1398171778
 Transform:
   m_ObjectHideFlags: 0

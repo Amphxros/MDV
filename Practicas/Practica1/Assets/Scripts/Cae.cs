@@ -15,10 +15,7 @@ public class Cae : MonoBehaviour
         {
             units_per_second = Random.Range(min_vel, max_vel);
         }
-        else
-        {
-           Debug.LogError("velocidad maxima es menor que la minima");
-        }
+        
     }
 
     void Update()

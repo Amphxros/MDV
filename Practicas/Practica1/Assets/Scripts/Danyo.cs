@@ -28,6 +28,12 @@ public class Danyo : MonoBehaviour
     public void OnLostLetter()
     {
         if (percent_ < 100)
+        {
             percent_ += 10;
+        }
+        else
+        {
+            print("Game Over");
+        }
     }
 }

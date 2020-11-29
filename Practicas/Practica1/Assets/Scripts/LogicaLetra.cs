@@ -9,8 +9,8 @@ public class LogicaLetra : MonoBehaviour
     void Start()
     {
         text = GetComponent<TextMesh>();
+        
         type = Random.Range(0, 2);
-
         if (type == 0)  //caso minusculas
         {
             init = 'a';
@@ -28,8 +28,8 @@ public class LogicaLetra : MonoBehaviour
             last = '9';
         }
 
-        char c  = (char)(Random.Range(init, last));  
-        text.text = c.ToString();
+        char c  = (char)(Random.Range(init, last)); //generamos un char entre el rango correspondiente   
+        text.text = c.ToString(); //lo asignamos al texto
     }
 
     void Update()
