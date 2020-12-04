@@ -6,7 +6,7 @@ public class Danyo : MonoBehaviour
 {
     float percent_=1, timer_=1;
 
-    private Camera cam_; //
+    private Camera cam_; //camara
     
     void Start()
     {
@@ -25,6 +25,7 @@ public class Danyo : MonoBehaviour
         cam_.backgroundColor = new Color(percent_ / 100, percent_ / 100, percent_ / 100);
     }
 
+    //metodo que aumenta el daño en caso de perder 1 letra
     public void OnLostLetter()
     {
         if (percent_ < 100)
@@ -33,7 +34,7 @@ public class Danyo : MonoBehaviour
         }
         else
         {
-            print("Game Over");
+            Time.timeScale = 0;
         }
     }
 }

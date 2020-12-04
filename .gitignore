@@ -2,6 +2,8 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
+
+# Laboratorios
 Laboratorios/01-Lab/[Ll]ibrary/
 Laboratorios/01-Lab/[Tt]emp/
 Laboratorios/01-Lab/[Oo]bj/
@@ -27,14 +29,14 @@ Laboratorios/05-Lab/[Bb]uilds/
 Laboratorios/05-Lab/[Ll]ogs/
 Laboratorios/05-Lab/[Mm]emoryCaptures/
 
-
-Practicas/Practica1/[Ll]ibrary/
-Practicas/Practica1/[Tt]emp/
-Practicas/Practica1/[Oo]bj/
-Practicas/Practica1/[Bb]uild/
-Practicas/Practica1/[Bb]uilds/
-Practicas/Practica1/[Ll]ogs/
-Practicas/Practica1/[Mm]emoryCaptures/
+# Practicas
+Practicas/P1/Practica1/[Ll]ibrary/
+Practicas/P1/Practica1/[Tt]emp/
+Practicas/P1/Practica1/[Oo]bj/
+Practicas/P1/Practica1/[Bb]uild/
+Practicas/P1/Practica1/[Bb]uilds/
+Practicas/P1/Practica1/[Ll]ogs/
+Practicas/P1/Practica1/[Mm]emoryCaptures/
 
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored

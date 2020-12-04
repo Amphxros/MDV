@@ -19,6 +19,7 @@ public class Spawner : MonoBehaviour
     }
     void Spawn()
     {
+
         float time_ = Random.Range(minRitmoCreacion, maxRitmoCreacion);
         float pos = Random.Range(-limite_ / 2, limite_ / 2);
 

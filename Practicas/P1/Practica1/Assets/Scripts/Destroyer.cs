@@ -13,7 +13,6 @@ public class Destroyer : MonoBehaviour
    {
         Destroy(col.gameObject); //destruimos el objeto que entra en el trigger
       
-        if (d != null) //en el caso del player al coger las letras será nulo asi que no ejecutara esto
-            d.OnLostLetter();
+        d.OnLostLetter(); //se ejecuta en cas de que exista el componente
    }
 }
