@@ -10,7 +10,8 @@ public class LogicaLetra : MonoBehaviour
     {
         text = GetComponent<TextMesh>();
         
-        type = Random.Range(0, 2);
+        type = Random.Range(0, 3); //random entre [a,b) es decir excluye el maximo
+        
         if (type == 0)  //caso minusculas
         {
             init = 'a';
