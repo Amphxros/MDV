@@ -39,6 +39,15 @@ Practicas/P1/Practica1/[Ll]ogs/
 Practicas/P1/Practica1/[Mm]emoryCaptures/
 
 
+Practicas/P1/Practica2/[Ll]ibrary/
+Practicas/P1/Practica2/[Tt]emp/
+Practicas/P1/Practica2/[Oo]bj/
+Practicas/P1/Practica2/[Bb]uild/
+Practicas/P1/Practica2/[Bb]uilds/
+Practicas/P1/Practica2/[Ll]ogs/
+Practicas/P1/Practica2/[Mm]emoryCaptures/
+
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
