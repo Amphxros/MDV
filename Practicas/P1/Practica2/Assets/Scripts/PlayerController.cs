@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public float velocityScale;
     private Rigidbody2D rb;
     void Start()
     {
@@ -20,25 +20,25 @@ public class PlayerController : MonoBehaviour
         if (x > 0) //movimiento hacia la derecha
         {
             transform.up = Vector2.right;
-            rb.velocity = new Vector2(x * speed,0);
+            rb.velocity = new Vector2(x * velocityScale,0);
 
         }
         else if (x < 0)//movimiento hacia la izquierda
         {
             transform.up = Vector2.left;
-            rb.velocity = new Vector2( x * speed,0);
+            rb.velocity = new Vector2( x * velocityScale, 0);
 
         }
         else if (y < 0)//movimiento hacia abajo
         {
             transform.up = Vector2.down;
-            rb.velocity = new Vector2(0, y * speed);
+            rb.velocity = new Vector2(0, y * velocityScale);
 
         }
         else if (y > 0)//movimiento hacia arriba
         {
             transform.up = Vector2.up;
-            rb.velocity = new Vector2(0, y*speed);
+            rb.velocity = new Vector2(0, y* velocityScale);
         }
 
     }
