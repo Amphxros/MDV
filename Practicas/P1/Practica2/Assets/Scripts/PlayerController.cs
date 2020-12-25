@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float velocityScale;
+    
     private Rigidbody2D rb;
+    private Shooter shoot;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();//pillamos el rigidbody
+        shoot = GetComponentInChildren<Shooter>();
     }
 
     void Update()
@@ -39,6 +42,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.up = Vector2.up;
             rb.velocity = new Vector2(0, y* velocityScale);
+        }
+
+        if (Input.GetButton("Jump"))
+        {
+            shoot.Shoot();
         }
 
     }
