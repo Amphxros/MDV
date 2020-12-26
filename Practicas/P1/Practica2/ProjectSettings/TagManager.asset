@@ -15,10 +15,10 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Walls
+  - Player
+  - Bullet
+  - Enemy
   - 
   - 
   - 
