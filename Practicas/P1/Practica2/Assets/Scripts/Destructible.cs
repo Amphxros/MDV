@@ -13,9 +13,18 @@ public class Destructible : MonoBehaviour
             if (d!=null)
             {
                 d.MakeDamage();
-                if (d.getDamage() <= 0) //si es un enemigo con 0 de vida o es un bloque (no tienen vida asi que d=null)
+                if (d.getDamage() <= 0) //si es un "personaje" con 0 de vida o es un bloque (no tienen vida asi que d=null)
                 {
-                    Destroy(this.gameObject);
+                    PlayerController p = this.gameObject.GetComponent<PlayerController>(); //para diferenciar del enemigo y el jugador
+                    if (p != null) //si existe este componente entonces es un jugador asi que reseteamos su posicion
+                    {
+                        p.ResetPosition();
+                        d.ResetDamage(); 
+                    }
+                    else //si no es un enemigo con 0 de vida
+                    {
+                        Destroy(this.gameObject);
+                    }
                 }
             }
             else

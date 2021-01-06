@@ -18,4 +18,6 @@ public class Damageable : MonoBehaviour
         current_damage--;
     }
     public int getDamage() { return current_damage; }
+
+    public void ResetDamage() { current_damage = max_damage; }
 }
