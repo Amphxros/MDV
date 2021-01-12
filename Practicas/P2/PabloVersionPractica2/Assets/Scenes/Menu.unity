@@ -234,11 +234,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1810873192324821652, guid: 5f78f73200008614fbf878d97ae03803,
-        type: 3}
-      propertyPath: lives
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4092927955032563669, guid: 5f78f73200008614fbf878d97ae03803,
         type: 3}
       propertyPath: m_Name
@@ -1100,7 +1095,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2134576564}
+      - m_Target: {fileID: 1810873192324821652, guid: 5f78f73200008614fbf878d97ae03803,
+          type: 3}
         m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:
@@ -1108,7 +1104,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Escena08
+          m_StringArgument: Level01
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1918134643
@@ -1227,15 +1223,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928307429}
   m_CullTransparentMesh: 0
---- !u!114 &2134576564 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1810873192324821652, guid: 5f78f73200008614fbf878d97ae03803,
-    type: 3}
-  m_PrefabInstance: {fileID: 264160933}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a2f3d42fb64ad40b9ed39bb45cae80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

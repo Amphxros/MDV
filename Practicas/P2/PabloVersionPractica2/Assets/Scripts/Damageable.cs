@@ -5,7 +5,7 @@ public class Damageable : MonoBehaviour
 {
     public int maxDamage;
     int actualDamage;
-    public int points;
+    //public int points;
     Vector2 positionPlayer;
     Quaternion rotationPlayer;
     bool isPlayer = false; //Para no estar comparando el tag
@@ -34,7 +34,7 @@ public class Damageable : MonoBehaviour
             }
             else
             {
-                GameManager.GetInstance().EnemyDestroyed(points);
+                //GameManager.GetInstance().EnemyDestroyed(points);
                 Destroy(gameObject);
             }
             actualDamage = maxDamage;

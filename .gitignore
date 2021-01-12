@@ -48,6 +48,14 @@ Practicas/P1/Practica2/[Ll]ogs/
 Practicas/P1/Practica2/[Mm]emoryCaptures/
 
 
+Practicas/P2/PabloVersionPractica2/[Ll]ibrary/
+Practicas/P2/PabloVersionPractica2/[Tt]emp/
+Practicas/P2/PabloVersionPractica2/[Oo]bj/
+Practicas/P2/PabloVersionPractica2/[Bb]uild/
+Practicas/P2/PabloVersionPractica2/[Bb]uilds/
+Practicas/P2/PabloVersionPractica2/[Ll]ogs/
+Practicas/P2/PabloVersionPractica2/[Mm]emoryCaptures/
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
