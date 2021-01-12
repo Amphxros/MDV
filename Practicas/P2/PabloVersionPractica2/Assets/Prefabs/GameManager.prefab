@@ -43,3 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04a2f3d42fb64ad40b9ed39bb45cae80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scenesInOrder:
+  - Menu
+  - Level01
+  - Level02

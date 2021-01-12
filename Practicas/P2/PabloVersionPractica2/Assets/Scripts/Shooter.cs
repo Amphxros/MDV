@@ -5,9 +5,9 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public float coolingDownSeconds;
-    public float shootCadenceSecs;
+    public float coolingDownSecs;
     public bool autoShoot;
+    public float shootCadenceSecs;
 
     float spawTimer;
     Transform spawTf;
@@ -16,7 +16,7 @@ public class Shooter : MonoBehaviour
     void Start()
     {
         spawTf = transform;
-        spawTimer = coolingDownSeconds;
+        spawTimer = coolingDownSecs;
         if (autoShoot)
             InvokeRepeating("Shoot", 0, shootCadenceSecs);
     }
@@ -34,7 +34,7 @@ public class Shooter : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab);
             bullet.transform.position = spawTf.position;
             bullet.transform.up = spawTf.up;
-            spawTimer = coolingDownSeconds;
+            spawTimer = coolingDownSecs;
         }
     }
 
