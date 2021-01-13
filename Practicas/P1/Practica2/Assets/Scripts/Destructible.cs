@@ -7,7 +7,8 @@ public class Destructible : MonoBehaviour
    
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Bullet"))
+        Bullet b = col.gameObject.GetComponent<Bullet>();
+        if (b!=null)
         {
             Damageable d = this.gameObject.GetComponent<Damageable>();
             if (d!=null)
