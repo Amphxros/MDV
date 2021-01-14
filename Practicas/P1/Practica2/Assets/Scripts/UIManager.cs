@@ -63,8 +63,8 @@ public class UIManager : MonoBehaviour
         if (enemiesLeft > 0)
         {
             enemyPanel.GetChild(enemiesLeft-1).gameObject.SetActive(false);
+            enemiesLeft--;
         }
-        enemiesLeft--;
     }
 
   }

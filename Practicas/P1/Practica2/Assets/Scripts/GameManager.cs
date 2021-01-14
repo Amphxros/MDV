@@ -70,12 +70,9 @@ public class GameManager : MonoBehaviour
     private void NextLevel()
     {
         level++;
-        if (level > scenes_in_order.Length)
+        if (level >= scenes_in_order.Length)
         {
-            level = 0;
-            curr_vidas = vidas;
-            sessionScore = 0;
-            ChangeScene("Menu");
+            GameOver();
         }
         else
         {
