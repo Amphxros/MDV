@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,10 +19,10 @@ public class GameManager : MonoBehaviour
     private int curr_vidas; //vidas actuales
     
     private int score=0;
-    public int getScore() { return score; }
+    private int sessionScore=0;
 
     private int numEnemys = 0;
-    private int level=0;
+    private int level;
     public void resetEnemys() { numEnemys = 0; }
 
 
@@ -37,12 +36,12 @@ public class GameManager : MonoBehaviour
         else
             Destroy(this.gameObject);
 
+        level = 0;
     }
     void Start()
     {
         curr_vidas = vidas;
         score = 0;
-
     }
     
     public void SetUIManager(UIManager uim)
@@ -60,6 +59,7 @@ public class GameManager : MonoBehaviour
     public void EnemyDestroyed(int destructionPoints)
     {
         score += destructionPoints;
+        sessionScore += destructionPoints;
         ui_manager.RemoveEnemy();
     }
     public void AddEnemy()
@@ -72,8 +72,44 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(scene_name);
     }
 
+    private void NextLevel()
+    {
+        level++;
+        if (level >= scenes_in_order.Length)
+        {
+            level = 0;
+            curr_vidas = vidas;
+            sessionScore = 0;
+            ChangeScene("Menu");
+        }
+        else
+        {
+            ChangeScene(scenes_in_order[level]);
+        }
+        numEnemys = 0;
+        score = 0;
+    }
+
     public void FinishLevel(bool playerWon)
     {
-
+        ui_manager.Score(score, sessionScore, level, playerWon);
+        if (playerWon)
+        {
+            Invoke("NextLevel", 3);
+        }
+        else
+        {
+            Invoke("GameOver", 3);
+        }
+             
+    }
+    private void GameOver()
+    {
+        level = 0;
+        curr_vidas = vidas;
+        sessionScore = 0;
+        numEnemys = 0;
+        score = 0;
+        ChangeScene("Menu");
     }
 }

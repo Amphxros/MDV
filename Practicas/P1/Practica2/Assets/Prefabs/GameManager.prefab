@@ -43,4 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de08353b5b5ecfb4f9909701c2227136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scenes_in_order:
+  - level1
+  - level2
   vidas: 3

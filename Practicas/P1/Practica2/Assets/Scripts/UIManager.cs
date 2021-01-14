@@ -1,19 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public Image enemy_image;
-    public Text livesText, stageText,levelScoreText,sessionScore;
-    public RectTransform enemyPanel;
+    public Text livesText, stageText,levelScoreText,sessionScoreText;
+    public RectTransform enemyPanel, infoPanel, gameOverPanel;
     private int enemiesLeft;
 
-     void Start()
+    void Start()
     {
-        GameManager.getInstance().SetUIManager(this);
-        
+       GameManager.getInstance().SetUIManager(this);
+       
     }
     public void Init(int numLives, int numEnemies)
     {
@@ -34,6 +33,10 @@ public class UIManager : MonoBehaviour
         {
             Instantiate(enemy_image, enemyPanel.transform);
         }
+
+        infoPanel.gameObject.SetActive(false);
+        gameOverPanel.gameObject.SetActive(false);
+
     }
 
     public void UpdateLives(int numLives)
@@ -41,13 +44,27 @@ public class UIManager : MonoBehaviour
         livesText.text = numLives.ToString();
     }
 
+    public void Score(int levelScore, int sessionScore, int level, bool playing)
+    {
+        if (playing)
+        {
+            stageText.text = level.ToString();
+            levelScoreText.text = levelScore.ToString();
+            sessionScoreText.text = sessionScore.ToString();
+        }
+
+        infoPanel.gameObject.SetActive(playing);
+        gameOverPanel.gameObject.SetActive(!playing);
+
+    }
+
     public void RemoveEnemy()
     {
         if (enemiesLeft > 0)
         {
-            enemiesLeft--;
-            enemyPanel.GetChild(enemiesLeft).gameObject.SetActive(false);
+            enemyPanel.GetChild(enemiesLeft-1).gameObject.SetActive(false);
         }
+        enemiesLeft--;
     }
 
   }

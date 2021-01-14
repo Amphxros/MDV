@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class Damageable : MonoBehaviour
@@ -32,16 +31,18 @@ public class Damageable : MonoBehaviour
             {
                 if (!GameManager.getInstance().PlayerDestroyed())
                 {
-                    this.transform.position = initialPos;
-                    this.transform.rotation = initialRot;
+                    ResetPosition();
                 }
                 else
                 {
                     Destroy(this.gameObject);
+                    GameManager.getInstance().FinishLevel(false);
                 }
             }
             else
             {
+                Enemy enemy = this.gameObject.GetComponent<Enemy>();
+                GameManager.getInstance().EnemyDestroyed(enemy.points);
                 Destroy(this.gameObject);
             }
 
@@ -49,8 +50,12 @@ public class Damageable : MonoBehaviour
 
         }
     }
-   void ResetDamage() { current_damage = max_damage; }
-
+    void ResetDamage() { current_damage = max_damage; }
+    void ResetPosition()
+    {
+        this.transform.position = initialPos;
+        this.transform.rotation = initialRot;
+    }
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.GetComponent<Bullet>() != null)
