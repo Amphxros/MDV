@@ -9,8 +9,11 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     public static GameManager getInstance() {  return instance;}
 
+    private UIManager ui_manager;
 
-    public string[] scenes_in_order;
+
+    [SerializeField]
+    private string[] scenes_in_order;
 
 
     public int vidas; //vidas maximas
@@ -20,7 +23,7 @@ public class GameManager : MonoBehaviour
     public int getScore() { return score; }
 
     private int numEnemys = 0;
-    private int level;
+    private int level=0;
     public void resetEnemys() { numEnemys = 0; }
 
 
@@ -34,9 +37,6 @@ public class GameManager : MonoBehaviour
         else
             Destroy(this.gameObject);
 
-        level = 0;
-        ChangeScene(scenes_in_order[level]);
-
     }
     void Start()
     {
@@ -44,18 +44,36 @@ public class GameManager : MonoBehaviour
         score = 0;
 
     }
+    
+    public void SetUIManager(UIManager uim)
+    {
+        ui_manager = uim;
+        uim.Init(curr_vidas, numEnemys);
+    }
+    
     public bool PlayerDestroyed()
     {
         curr_vidas--;
+        ui_manager.UpdateLives(curr_vidas);
         return curr_vidas <= 0;
     }
     public void EnemyDestroyed(int destructionPoints)
     {
         score += destructionPoints;
+        ui_manager.RemoveEnemy();
     }
+    public void AddEnemy()
+    {
+        numEnemys++;
 
+    }
     public void ChangeScene(string scene_name)
     {
         SceneManager.LoadScene(scene_name);
+    }
+
+    public void FinishLevel(bool playerWon)
+    {
+
     }
 }

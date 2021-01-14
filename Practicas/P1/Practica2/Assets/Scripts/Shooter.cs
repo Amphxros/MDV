@@ -15,13 +15,14 @@ public class Shooter : MonoBehaviour
     {
         time_ = coolingDownSecs;
         tr_ = GetComponentInParent<Transform>(); // obtenemos el transform del objeto padre
+
+        if (autoshoot)
+            InvokeRepeating("Shoot",0, shootCadenceSecs); //esto es para pruebas de momento
     }
    void Update()
    {
-        time_ -= Time.time* Time.deltaTime;
-        if(autoshoot)
-            Invoke("Shoot",shootCadenceSecs); //esto es para pruebas de momento
-
+        time_ -= Time.deltaTime;
+        
    }
     void OnDestroy()
     {
@@ -32,7 +33,7 @@ public class Shooter : MonoBehaviour
         if (time_ <= 0)
         {
             Instantiate(prefab, transform.position, tr_.rotation); //instanciamos el objeto
-            time_ = Time.time + coolingDownSecs;
+            time_ = coolingDownSecs;
         }
     }
 }

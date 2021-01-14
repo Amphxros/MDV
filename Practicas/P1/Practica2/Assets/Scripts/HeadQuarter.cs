@@ -10,7 +10,6 @@ public class HeadQuarter : MonoBehaviour
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();
-
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -25,5 +24,6 @@ public class HeadQuarter : MonoBehaviour
             print("Has perdido");
             renderer.sprite = destroyed_sprite;
         }
+        GameManager.getInstance().FinishLevel(b == null);
     }
 }

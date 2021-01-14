@@ -8,15 +8,8 @@ public class PlayerController : MonoBehaviour
     
     private Rigidbody2D rb;
     private Shooter shoot;
-
-    private Vector3 initialPos;
-    private Quaternion initialRot;
-    void Start()
+ void Start()
     {
-      
-        initialPos = this.transform.position;
-        initialRot = this.transform.rotation;
-
         rb = GetComponent<Rigidbody2D>();//pillamos el rigidbody
         shoot = GetComponentInChildren<Shooter>();
     }
@@ -58,9 +51,4 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void ResetPosition()
-    {
-        this.transform.position = initialPos;
-        this.transform.rotation = initialRot;
-    }
 }
