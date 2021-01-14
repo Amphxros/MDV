@@ -10,10 +10,8 @@ public class GameManager : MonoBehaviour
 
     private UIManager ui_manager;
 
-
     [SerializeField]
     private string[] scenes_in_order;
-
 
     public int vidas; //vidas maximas
     private int curr_vidas; //vidas actuales
@@ -23,8 +21,6 @@ public class GameManager : MonoBehaviour
 
     private int numEnemys = 0;
     private int level;
-    public void resetEnemys() { numEnemys = 0; }
-
 
     void Awake()
     {
@@ -65,7 +61,6 @@ public class GameManager : MonoBehaviour
     public void AddEnemy()
     {
         numEnemys++;
-
     }
     public void ChangeScene(string scene_name)
     {
@@ -75,7 +70,7 @@ public class GameManager : MonoBehaviour
     private void NextLevel()
     {
         level++;
-        if (level >= scenes_in_order.Length)
+        if (level > scenes_in_order.Length)
         {
             level = 0;
             curr_vidas = vidas;
