@@ -20,6 +20,9 @@ public class Damageable : MonoBehaviour
         p = this.gameObject.GetComponent<PlayerController>();
     }
 
+    /// <summary>
+    /// Hace 1 de daño al objeto y resta vida si es necesario 
+    /// </summary>
     public void MakeDamage()
     {
         current_damage--;

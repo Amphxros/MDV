@@ -13,8 +13,8 @@ public class HeadQuarter : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Bullet b = col.gameObject.GetComponent<Bullet>();
-        if (b == null) //si ha llegado el jugador
+        PlayerController p = col.gameObject.GetComponent<PlayerController>();
+        if (p != null) //si ha llegado el jugador
         {
             print("Has ganado");
         }
@@ -23,6 +23,8 @@ public class HeadQuarter : MonoBehaviour
             print("Has perdido");
             sprite.sprite = destroyed_sprite;
         }
-        GameManager.getInstance().FinishLevel(b == null);
+        GameManager.getInstance().FinishLevel(p != null);
+
+        Destroy(col.gameObject.GetComponent<Shooter>()); //y desactivamos los disparos
     }
 }
