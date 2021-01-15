@@ -5,6 +5,6 @@ public class DestroyOnCollision : MonoBehaviour
 {
    void OnCollisionEnter2D(Collision2D col)
     {
-        Destroy(this.gameObject);
+        Destroy(this.gameObject); 
     }
 }

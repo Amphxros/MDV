@@ -3,25 +3,24 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    public GameObject prefab;
-    public bool autoshoot = false;
-    public float coolingDownSecs, shootCadenceSecs; //coolingDownSecs
+    public GameObject prefab;  //objeto a instanciar
+    public bool autoshoot = false; //si disparas automaticamente o por input
+    public float coolingDownSecs, shootCadenceSecs; //coolingDownSecs y cadencia
     
 
     private Transform tr_; //transform del padre
-    private float time_;
+    private float time_; 
     void Start()
     {
         time_ = coolingDownSecs;
-        tr_ = GetComponentInParent<Transform>(); // obtenemos el transform del objeto padre
+        tr_ = GetComponentInParent<Transform>();
 
         if (autoshoot)
-            InvokeRepeating("Shoot",0, shootCadenceSecs); //esto es para pruebas de momento
+            InvokeRepeating("Shoot",0, shootCadenceSecs); 
     }
    void Update()
    {
-        time_ -= Time.deltaTime;
-        
+        time_ -= Time.deltaTime;    
    }
     void OnDestroy()
     {

@@ -11,16 +11,16 @@ public class GameManager : MonoBehaviour
     private UIManager ui_manager;
 
     [SerializeField]
-    private string[] scenes_in_order;
+    private string[] scenes_in_order; //array de escenas
 
     public int vidas; //vidas maximas
     private int curr_vidas; //vidas actuales
     
-    private int score=0;
-    private int sessionScore=0;
+    private int levelScore=0; //puntuacion de nivel
+    private int sessionScore=0; //puntuacion total de partida
 
-    private int numEnemys = 0;
-    private int level;
+    private int numEnemys = 0; //numero de enemigos
+    private int stage; //indice del nivel
 
     void Awake()
     {
@@ -32,59 +32,89 @@ public class GameManager : MonoBehaviour
         else
             Destroy(this.gameObject);
 
-        level = 0;
+        stage = 0;
     }
+
     void Start()
     {
         curr_vidas = vidas;
-        score = 0;
+        levelScore = 0;
     }
-    
+
+    /// <summary>
+    /// inicializa el uimanager y le pasa informacion inicial
+    /// </summary>
+    /// <param name="uim"></param>
     public void SetUIManager(UIManager uim)
     {
         ui_manager = uim;
         uim.Init(curr_vidas, numEnemys);
     }
-    
+
+    /// <summary>
+    /// resta vidas al jugador,
+    /// </summary>
+    /// <returns> vidas<=0 </returns>
     public bool PlayerDestroyed()
     {
         curr_vidas--;
         ui_manager.UpdateLives(curr_vidas);
         return curr_vidas <= 0;
     }
+
+    /// <summary>
+    /// añade puntos y actualiza la interfaz
+    /// </summary>
+    /// <param name="destructionPoints"></param>
     public void EnemyDestroyed(int destructionPoints)
     {
-        score += destructionPoints;
+        levelScore += destructionPoints;
         sessionScore += destructionPoints;
         ui_manager.RemoveEnemy();
     }
+
+    /// <summary>
+    /// añade enemigos, necesario para la interfaz
+    /// </summary>
     public void AddEnemy()
     {
         numEnemys++;
     }
+
+    /// <summary>
+    /// cambia a una escena
+    /// </summary>
+    /// <param name="scene_name"> nombre de escena</param>
     public void ChangeScene(string scene_name)
     {
         SceneManager.LoadScene(scene_name);
     }
 
+    /// <summary>
+    /// cambia de nivel si ha ganado y si hay niveles disponibles, si no lo lleva al menu
+    /// </summary>
     private void NextLevel()
     {
-        level++;
-        if (level >= scenes_in_order.Length)
+        stage++;
+        if (stage >= scenes_in_order.Length)
         {
             GameOver();
         }
         else
         {
-            ChangeScene(scenes_in_order[level]);
+            ChangeScene(scenes_in_order[stage]);
         }
         numEnemys = 0;
-        score = 0;
+        levelScore = 0;
     }
 
+    /// <summary>
+    /// muestra la interfaz correspondiente
+    /// </summary>
+    /// <param name="playerWon"> si has ganado = true</param>
     public void FinishLevel(bool playerWon)
     {
-        ui_manager.Score(score, sessionScore, level, playerWon);
+        ui_manager.Score(levelScore, sessionScore, stage, playerWon);
         if (playerWon)
         {
             Invoke("NextLevel", 3);
@@ -95,13 +125,17 @@ public class GameManager : MonoBehaviour
         }
              
     }
+
+    /// <summary>
+    /// resetea los valores y cambia de escena al menu
+    /// </summary>
     private void GameOver()
     {
-        level = 0;
+        stage = 0;
         curr_vidas = vidas;
         sessionScore = 0;
         numEnemys = 0;
-        score = 0;
+        levelScore = 0;
         ChangeScene("Menu");
     }
 }

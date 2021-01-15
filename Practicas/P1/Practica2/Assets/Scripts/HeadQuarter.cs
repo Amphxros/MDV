@@ -5,10 +5,10 @@ public class HeadQuarter : MonoBehaviour
 {
     public Sprite destroyed_sprite;
 
-    private SpriteRenderer renderer;
+    private SpriteRenderer sprite; //sprite renderer del objeto en cuestion
     void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -21,7 +21,7 @@ public class HeadQuarter : MonoBehaviour
         else
         {
             print("Has perdido");
-            renderer.sprite = destroyed_sprite;
+            sprite.sprite = destroyed_sprite;
         }
         GameManager.getInstance().FinishLevel(b == null);
     }
